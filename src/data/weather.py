@@ -2,6 +2,7 @@ import os
 import pandas as pd
 import xarray as xr
 from wildfire import get_rounded_location_and_date_of_fires
+from math import sqrt
 
 def make_bronze_dataframe(raw_paths):
     fire_df = get_fire_dataframe()
@@ -17,6 +18,10 @@ def make_bronze_dataframe(raw_paths):
         dfw.set_index(["latitude", "longitude", "time"], inplace=True)
         dfws.append(dfw)
     dfw = pd.concat(dfws, axis = 1)
+    del dfws
+    dfw['wind_speed'] = dfw.v10**2 + dfw.u10**2
+    dfw['wind_speed'] = dfw['wind_speed'].apply(lambda x: sqrt(x))
+    dfw.drop(['u10', 'v10'], axis = 1, inplace = True)
     return dfw
 
 def get_fire_dataframe():
