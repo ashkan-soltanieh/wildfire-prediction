@@ -42,3 +42,9 @@ def make_silver_dataframes(aob_path, characteristics_path):
     df_characteristics.rename(columns={'YYYYMMDD': 'Date'}, inplace=True)
     
     return df_aob, df_characteristics
+
+def get_rounded_location_and_date_of_fires(df):
+    lat_rounded = set(df.lat.map(lambda x: round(x * 4) / 4))
+    lon_rounded = set(df.lon.map(lambda x: round(x * 4) / 4))
+    dates = pd.to_datetime(df["Date"]).dt.date
+    return lat_rounded, lon_rounded, set(dates)
