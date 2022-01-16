@@ -1,20 +1,20 @@
 import os
 import pandas as pd
 import xarray as xr
-from wildfire import get_rounded_location_and_date_of_fires
+from wildfire import get_rounded_locations
 from math import sqrt
 
 def make_bronze_dataframe(raw_paths):
     fire_df = get_fire_dataframe()
-    lat_rounded, lon_rounded, dates = get_rounded_location_and_date_of_fires(fire_df)
+    df_lat_rounded, df_lon_rounded = get_rounded_locations(fire_df)
     dfws = []
     for path in raw_paths:
         dfw = xr.open_dataset(path).to_dataframe()
         dfw.reset_index(drop=False, inplace=True)
         dfw = dfw[
-            (dfw["latitude"].isin(lat_rounded)) & 
-            (dfw["longitude"].isin(lon_rounded)) &
-            (dfw["time"].dt.date.isin(dates))]
+            (dfw["latitude"].isin(set(df_lat_rounded))) & 
+            (dfw["longitude"].isin(set(df_lon_rounded))) &
+            (dfw["time"].dt.date.isin(set(pd.to_datetime(dfw["Date"]).dt.date)))]
         dfw.set_index(["latitude", "longitude", "time"], inplace=True)
         dfws.append(dfw)
     dfw = pd.concat(dfws, axis = 1)
