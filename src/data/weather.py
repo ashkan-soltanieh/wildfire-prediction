@@ -28,6 +28,8 @@ def make_silver_dataframe(path):
     dfw = pd.read_csv(path, parse_dates=['time'])
     dfw['date'] = dfw['time'].dt.date
     dfw.drop('time', axis = 1, inplace = True)
+    dfw['t2m'] = dfw['t2m'] - 273.15
+    dfw['d2m'] = dfw['d2m'] - 273.15
     dfw_grp = dfw.groupby(['latitude', 'longitude', 'date'], axis = 0).agg(['mean', 'std'])
     dfw_grp.columns = ['_'.join(item) for item in dfw_grp]
     dfw_grp.drop(['cvl_std', 'cvh_std'], axis = 1, inplace = True)

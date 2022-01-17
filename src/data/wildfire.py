@@ -40,8 +40,10 @@ def make_silver_dataframes(aob_path, characteristics_path):
     df_characteristics = pd.read_csv(characteristics_path, low_memory = False) \
                            .drop(['FD_Agency', 'dn', 'HHMM', 'sample', 'type', 'geometry'], axis = 1)
     df_characteristics['rounded_lat'], df_characteristics['rounded_lon'] = get_rounded_locations(df_characteristics)
-    df_characteristics["Date"] = get_formatted_date(df_characteristics['YYYYMMDD'])
+    df_characteristics['Date'] = get_formatted_date(df_characteristics['YYYYMMDD'])
     df_characteristics.drop(['YYYYMMDD', 'lat', 'lon'], axis = 1, inplace = True)
+    df_characteristics['T21'] = df_characteristics['T21'] - 273.15
+    df_characteristics['T31'] = df_characteristics['T31'] - 273.15
     grp_list = ['Date', 'sat', 'UID_Fire', 'Status', 'REF_ID', 'rounded_lat', 'rounded_lon']
     df_characteristics = df_characteristics.groupby(grp_list, axis = 0) \
                       .agg(['mean', 'std']) \
