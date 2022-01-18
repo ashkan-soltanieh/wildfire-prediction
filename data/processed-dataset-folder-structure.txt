@@ -1,0 +1,18 @@
+[ 74G]  .
+├── [10.0M]  gold_wildfire_weather_merged.csv
+├── [   0]  processed-dataset-folder-structure.txt
+├── [ 73G]  weather
+│   ├── [ 72G]  bronze
+│   │   ├── [ 14G]  bronze_weather-synced-with-fires.csv
+│   │   └── [ 58G]  bronze_weather.csv
+│   └── [1.4G]  silver
+│       └── [1.4G]  silver_weather-daily-mean-std.csv
+└── [813M]  wildfire
+    ├── [808M]  bronze
+    │   ├── [787M]  bronze_AoB.csv
+    │   └── [ 21M]  bronze_chracteristics.csv
+    └── [4.6M]  silver
+        ├── [731K]  silver_AoB.csv
+        └── [3.9M]  silver_chracteristics.csv
+
+  74G used in 6 directories, 9 files

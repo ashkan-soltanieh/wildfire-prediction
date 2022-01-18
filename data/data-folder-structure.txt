@@ -1,0 +1,47 @@
+.
+├── data-folder-structure.txt
+├── processed
+│   ├── gold_wildfire_weather_merged.csv
+│   ├── weather
+│   │   ├── bronze
+│   │   └── silver
+│   └── wildfire
+│       ├── bronze
+│       └── silver
+├── processed-dataset-folder-structure.txt
+├── raw
+│   ├── weather
+│   │   ├── data-10m_u_component_of_wind.nc
+│   │   ├── data-10m_v_component_of_wind.nc
+│   │   ├── data-2m_dewpoint_temperature.nc
+│   │   ├── data-2m_temperature.nc
+│   │   ├── data-convective_available_potential_energy.nc
+│   │   ├── data-high_vegetation_cover.nc
+│   │   ├── data-low_vegetation_cover.nc
+│   │   ├── data-total_cloud_cover.nc
+│   │   ├── data-total_precipitation.nc
+│   │   └── data-volumetric_soil_water_layer_1.nc
+│   └── wildfire
+│       ├── ABoVE_DoB_2010
+│       ├── ABoVE_DoB_2011
+│       ├── ABoVE_DoB_2012
+│       ├── ABoVE_DoB_2013
+│       ├── ABoVE_DoB_2014
+│       ├── ABoVE_DoB_2015
+│       ├── ABoVE_DoB_2016
+│       ├── ABoVE_DoB_2017
+│       ├── ABoVE_DoB_2018
+│       ├── ABoVE_DoB_2019
+│       ├── ABoVE_DoB_MODIS_Active_Fires_2010
+│       ├── ABoVE_DoB_MODIS_Active_Fires_2011
+│       ├── ABoVE_DoB_MODIS_Active_Fires_2012
+│       ├── ABoVE_DoB_MODIS_Active_Fires_2013
+│       ├── ABoVE_DoB_MODIS_Active_Fires_2014
+│       ├── ABoVE_DoB_MODIS_Active_Fires_2015
+│       ├── ABoVE_DoB_MODIS_Active_Fires_2016
+│       ├── ABoVE_DoB_MODIS_Active_Fires_2017
+│       ├── ABoVE_DoB_MODIS_Active_Fires_2018
+│       └── ABoVE_DoB_MODIS_Active_Fires_2019
+└── raw-dataset-folder-structure.txt
+
+30 directories, 14 files
