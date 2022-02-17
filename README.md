@@ -1,4 +1,4 @@
-# Predicting Wildfires in the Canadian Rockies
+# Predicting Wildfires with Machine Learning
 
 This project is created a part of final project for [IBM Applied Data Science Capstone](https://www.coursera.org/learn/applied-data-science-capstone) course which is part of the [IBM Data Science Professional Certificate](https://www.coursera.org/professional-certificates/ibm-data-science) program.
 
@@ -7,7 +7,11 @@ This project is created a part of final project for [IBM Applied Data Science Ca
 * * *
  
 ## Project Intro/Objective
-The purpose of this project is to predict wildfires area of burn based on weather data in Alberta and British Colombia between 2010 and 2019.
+The purpose of this project is to predict the area of burn of wildfires using weather data, and historical fires in Alberta and BC between 2010 and 2019.
+
+The selected analytical approach is multi-class classification supervised learning.
+
+The cleaning process was inspired by "Multi-Hop" approach, first used by Databricks, and mindset of **"Data is immutable"** and **"Raw data is single source of truth"**.
 
 ### Methods Used
 * Inferential Statistics
