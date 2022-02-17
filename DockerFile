@@ -1,0 +1,11 @@
+FROM continuumio/miniconda3:4.10.3p0-alpine
+RUN addgroup app && adduser -S -G app app
+RUN mkdir /app && chown app:app /app
+WORKDIR /app
+COPY environment.txt .
+RUN conda create -n wildfire --file environment.txt
+COPY . .
+WORKDIR /app/notebooks
+USER app
+RUN conda activate wildfire
+CMD ["jupyter", "notebook", "--port=8888", "--no-browser", "--ip=0.0.0.0", "--allow-root"]

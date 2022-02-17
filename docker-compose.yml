@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  jupyter:
+    build: .
+    image: wildfire_prediction_western_can:v1.0.0
+    ports:
+      - 8888:8888
